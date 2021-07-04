@@ -14,6 +14,7 @@ public class Project implements Serializable {
     private Long id;
     private String name;
     private String description;
+    private String status;
     private final UUID projectId = UUID.randomUUID();
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "pt_fid", referencedColumnName = "id")
@@ -21,10 +22,11 @@ public class Project implements Serializable {
     public Project() {
     }
 
-    public Project(Long id, String name, String description) {
+    public Project(Long id, String name, String description, String status) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.status = status;
     }
 
     public Long getId() {
@@ -55,6 +57,14 @@ public class Project implements Serializable {
         return projectId;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public List<Task> getTasks() {
         return tasks;
     }
@@ -69,6 +79,7 @@ public class Project implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
                 ", projectId=" + projectId +
                 ", tasks=" + tasks +
                 '}';

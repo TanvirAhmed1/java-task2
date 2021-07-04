@@ -11,6 +11,7 @@ public class Task implements Serializable {
     @Column(nullable = false, updatable = false)
     private long id;
     private String name;
+    private String status;
     private final UUID taskId = UUID.randomUUID();
 
     public Task() {
@@ -41,11 +42,20 @@ public class Task implements Serializable {
         return taskId;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
                 ", taskId=" + taskId +
                 '}';
     }
