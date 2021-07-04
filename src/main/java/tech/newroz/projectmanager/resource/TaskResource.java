@@ -3,7 +3,6 @@ package tech.newroz.projectmanager.resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tech.newroz.projectmanager.model.Project;
 import tech.newroz.projectmanager.model.Task;
 import tech.newroz.projectmanager.service.TaskService;
 
@@ -41,7 +40,7 @@ public class TaskResource {
         return new ResponseEntity<>(updateTask, HttpStatus.OK);
     }
 
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProject(@PathVariable("id") Long id){
         taskService.deleteTask(id);
         return new ResponseEntity<>(HttpStatus.OK);
